@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Hackathon Memories</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { textShadow: '0 0 10px #FFB100, 0 0 20px #FFB100, 0 0 40px #FFB100' },
+                            '100%': { textShadow: '0 0 20px #FFB100, 0 0 40px #FFB100, 0 0 60px #FFB100' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .energy-background {
+            background-image: url('upscaled_image_4K.png');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 98%;
+            z-index: 0;
+            animation: energyPulse 8s ease-in-out infinite;
+        }
+
+        
+        @keyframes energyPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .particle {
+            position: absolute;
+            background: #FFB100;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(255, 177, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden min-h-screen">
+    <!-- Dynamic Background -->
+    <div class="energy-background"></div>
+    <div class="energy-overlay"></div>
+
+    <div class="relative min-h-screen flex flex-col items-center justify-center p-8 z-10">
+        <!-- Hero Section -->
+        <h1 class="text-4xl md:text-6xl font-bold text-center mb-8 text-amber-400 animate-glow">
+            VoltSpark
+        </h1>
+
+        <!-- Team Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full mt-12">
+            <!-- Team Member 1 -->
+            <div class="member glass-card p-8 rounded-2xl text-center opacity-0 translate-y-12">
+                <div class="relative w-40 h-40 mx-auto mb-4">
+                    <img src="/api/placeholder/150/150" alt="Team Member 1" class="rounded-full w-full h-full object-cover border-4 border-amber-400 shadow-lg shadow-amber-400/50">
+                </div>
+                <h3 class="text-2xl font-bold text-amber-400 mb-2">Alex Thompson</h3>
+                <p class="text-amber-200/80">Full Stack Developer</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="member glass-card p-8 rounded-2xl text-center opacity-0 translate-y-12">
+                <div class="relative w-40 h-40 mx-auto mb-4">
+                    <img src="/api/placeholder/150/150" alt="Team Member 2" class="rounded-full w-full h-full object-cover border-4 border-amber-400 shadow-lg shadow-amber-400/50">
+                </div>
+                <h3 class="text-2xl font-bold text-amber-400 mb-2">Sarah Chen</h3>
+                <p class="text-amber-200/80">UI/UX Designer</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="member glass-card p-8 rounded-2xl text-center opacity-0 translate-y-12">
+                <div class="relative w-40 h-40 mx-auto mb-4">
+                    <img src="/api/placeholder/150/150" alt="Team Member 3" class="rounded-full w-full h-full object-cover border-4 border-amber-400 shadow-lg shadow-amber-400/50">
+                </div>
+                <h3 class="text-2xl font-bold text-amber-400 mb-2">Mike Rodriguez</h3>
+                <p class="text-amber-200/80">Backend Engineer</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="member glass-card p-8 rounded-2xl text-center opacity-0 translate-y-12">
+                <div class="relative w-40 h-40 mx-auto mb-4">
+                    <img src="/api/placeholder/150/150" alt="Team Member 4" class="rounded-full w-full h-full object-cover border-4 border-amber-400 shadow-lg shadow-amber-400/50">
+                </div>
+                <h3 class="text-2xl font-bold text-amber-400 mb-2">Emma Davis</h3>
+                <p class="text-amber-200/80">Frontend Developer</p>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="achievements glass-card mt-16 w-full max-w-6xl p-8 rounded-2xl opacity-0 translate-y-12">
+            <h2 class="text-3xl font-bold text-amber-400 text-center mb-8">Our Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Best Innovation</h3>
+                    <p class="text-amber-200/80">First Prize</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Technical Excellence</h3>
+                    <p class="text-amber-200/80">Special Mention</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">People's Choice</h3>
+                    <p class="text-amber-200/80">Runner Up</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Particle Animation
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            document.body.appendChild(particle);
+
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            const destinationX = x + (Math.random() - 0.5) * 200;
+            const destinationY = y + (Math.random() - 0.5) * 200;
+
+            gsap.fromTo(particle, 
+                {
+                    x: x,
+                    y: y,
+                    opacity: 1
+                },
+                {
+                    duration: 2,
+                    x: destinationX,
+                    y: destinationY,
+                    opacity: 0,
+                    ease: "power2.out",
+                    onComplete: () => particle.remove()
+                }
+            );
+        }
+
+        // Create particles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.1) {
+                createParticle(e.clientX, e.clientY);
+            }
+        });
+
+        // GSAP Animations
+        gsap.from('h1', {
+            duration: 2,
+            y: -100,
+            opacity: 0,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.to('.member', {
+            duration: 1,
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            ease: 'power2.out'
+        });
+
+        gsap.to('.achievements', {
+            duration: 1,
+            opacity: 1,
+            y: 0,
+            delay: 1,
+            ease: 'power2.out'
+        });
+
+        // Random particle generation
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createParticle(x, y);
+        }, 200);
+    </script>
+</body>
+</html>
